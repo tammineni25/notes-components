@@ -1,0 +1,22 @@
+<div>
+    <h2>Notes App</h2>
+  
+    <label for="noteTitle">Title:</label>
+    <input type="text" id="noteTitle" [(ngModel)]="newNote.title" placeholder="Enter title">
+  
+    <label for="noteStatus">Status:</label>
+    <input type="text" id="noteStatus" [(ngModel)]="newNote.status" placeholder="Enter status">
+  
+    <button (click)="addNote()">Add Note</button>
+  
+    <div>
+      <button (click)="changeTab('ALL')" [class.active]="activeTab === 'ALL'">All</button>
+      <button (click)="changeTab('Active')" [class.active]="activeTab === 'Active'">Active</button>
+      <button (click)="changeTab('Completed')" [class.active]="activeTab === 'Completed'">Completed</button>
+    </div>
+  
+    <ul>
+      <li *ngFor="let note of filteredNotes">{{ note.title }} - {{ note.status }}</li>
+    </ul>
+  </div>
+  
